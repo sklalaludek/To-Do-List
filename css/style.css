@@ -1,55 +1,52 @@
 @import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
+* {
+    box-sizing: border-box;
+}
 html {
   font-size: 10px;
   background: url('../img/background.png') bottom center no-repeat;
   background-size: cover;
 }
 body,html {
+  font-family: 'Gloria Hallelujah', cursive;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: 'Gloria Hallelujah', cursive;
 }
 body {
     min-height: 100vh;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     flex-flow: column nowrap;
+}
+h2 {
+    margin: 0;
+    padding: 0;
 }
 button {
     cursor: pointer;
     font-family: 'Gloria Hallelujah', cursive;
     border: none;
     text-transform: uppercase;
+    text-align: center;
+    color: white;
 }
-ul {
-    list-style-type: disc;
-}
+
+/* Content */
 #container {
-    margin: auto;
+    margin-top: 10em;
     min-height: 50em;
     min-width: 50%;
     background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 10%;
+    border-radius: 5%;
     box-shadow: 0px 40px 60px -20px rgba(0,0,0,0.2);
     overflow: hidden;
     display: flex;
     flex-flow: column nowrap;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     border: 1px solid rgb(255,69,0);
-    padding: 1.5em;
-}
-#removeFinishedTasksButton {
-    color: white;
-    background-color: rgb(255,69,0);
-    height: 5em;
-    font-size: 2em;
-    transition: background-color 0.6s cubic-bezier(0, 0, 0, 1.04);
-    transition: border-color .07s ease;
-    margin-top: 2em;
-}
-#removeFinishedTasksButton:hover {
-    background-color: rgb(170, 46, 0);
+    padding: 2em 1.5em;
 }
 /*h1*/
 .title {
@@ -59,9 +56,10 @@ ul {
     border-bottom: 0.020em solid orange;
     text-shadow: 0 0 0.2em black;
 }
+/* Div for text and task counter*/
 .additionalTask {
     font-size: 2em;
-    margin-bottom: 0.5em;
+    margin-bottom: 1.5em;
     text-shadow: 0 0 .1em black;
 }
 .additionalTask > span {
@@ -73,21 +71,26 @@ ul {
     border-radius: 10%;
     background-color: rgb(255,69,0);
 }
+/* Div for input and button */
 .addTask {
     display: flex;
     width: 100%;
     justify-content: space-around;
+    align-items: baseline;
 }
+/* Add task input */
 .addTask input[type="text"] {
     font-size: 20px;
+    font-family: 'Gloria Hallelujah', cursive;
     height: 2em;
-    min-width: 50%;
+    min-width: 8.500em;
     background: transparent;
     border: none;
-    border-bottom: 0.050em solid orange;
+    /*border-bottom: 0.050em solid orange;*/
     padding: 0.5em;
     outline-color: orange;
 }
+/* Placeholder*/
  /* Chrome/Opera/Safari */
 input[type="text"]::-webkit-input-placeholder {
      font-family: 'Gloria Hallelujah', cursive;
@@ -108,21 +111,78 @@ input[type="text"]:-moz-placeholder  {
      font-family: 'Gloria Hallelujah', cursive;
      color: black;
 }
+/* Button */
 .addTask > button {
     font-size: 2em;
     color: white;
     min-width: 4em;
-    padding: 0.5em;
-    border-radius: 15%;
-    background: rgba(255,69,0, 0.4);
+    padding: 0.3em 1.5em;
+    border-radius: 5%;
+    border-bottom: 0.2em solid rgb(170, 46, 0);
+    /*background: rgba(255,69,0, 0.9);*/
+    background: rgba(0,0,0,0.4);
     outline: none;
     transition: all .08s ease;
 }
-.addTask > button:hover {
-    background-color: rgba(255,69,0, 0.9);
-}
 .adding {
-    transform: scale(1.1);
+    /*transform: scale(1.1);
     border: 0.2em solid rgb(255, 198, 0);
-    box-shadow: 0 0 2em rgb(255, 198, 0);
+    box-shadow: 0 0 2em rgb(255, 198, 0);*/
+    transform: scale(0.95);
+}
+
+/* List */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+/* List items*/
+ul li {
+    font-size: 1.800em;
+    cursor: pointer;
+    position: relative;
+    padding: 12px 8px 12px 20px;
+    margin-bottom: 5px;
+    transition: border-left 0.2s ease;
+}
+ul li:hover {
+    border-left: 1px solid orange;
+}
+li button {
+    padding: 5px 10px;
+    margin-right: 5px;
+    outline: none;
+}
+li button.complete {
+    /*background-color: #77BD42;*/
+    background: rgba(0,0,0,0.4);
+    border-radius: 5%;
+    border-bottom: 0.300em solid #619638;
+}
+li button.delete {
+    /*background-color: #fc2161;*/
+    background: rgba(0,0,0,0.4);
+    border-radius: 5%;
+    border-bottom: 0.300em solid #c72151;
+}
+.done {
+    text-decoration: line-through;
+}
+
+/* Remove button */
+#removeFinishedTasksButton {
+    width: 100%;
+    /*background-color: rgb(255,69,0);*/
+    background-color: black;
+    height: 5em;
+    font-size: 2em;
+    /*transition: background-color 0.7s cubic-bezier(0, 0, 0, 1.04);*/
+    transition: background-color 0.7s linear;
+    margin-top: 2em;
+}
+#removeFinishedTasksButton:hover {
+    /*background-color: rgb(170, 46, 0);*/
+    background-color: rgb(255,69,0);
 }

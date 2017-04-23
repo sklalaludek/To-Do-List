@@ -30,16 +30,16 @@ document.addEventListener("DOMContentLoaded", function() {
         taskListH2.innerHTML = taskInput.value;
         buttonDelete.innerHTML = 'Delete';
         buttonComplete.innerHTML = 'Complete';
-
-        addCompleteClass(buttonComplete);
+        buttonComplete.classList.add('complete');
+        buttonDelete.classList.add('delete');
+        addDoneClass(buttonComplete);
         removeListElement(buttonDelete, taskListLi);
 
         taskInput.value = ' ';
         taskInput.value = taskInput.defaultValue;
-
     });
 
-    function addCompleteClass(button) {
+    function addDoneClass(button) {
         button.addEventListener('click', function() {
             this.parentElement.classList.toggle('done');
             return;
@@ -83,7 +83,5 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
     }
-
-
 
 });
