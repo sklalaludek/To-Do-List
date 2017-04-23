@@ -81,7 +81,7 @@ button {
 .addTask input[type="text"] {
     font-size: 20px;
     font-family: 'Gloria Hallelujah', cursive;
-    height: 2em;
+    height: 3em;
     min-width: 8.500em;
     background: transparent;
     border-radius: 5%;
