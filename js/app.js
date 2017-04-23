@@ -6,14 +6,14 @@ document.addEventListener("DOMContentLoaded", function() {
     var counter = 0;
     var taskCounter = document.getElementById('taskCounter');
 
-
+     // Add task
     addTaskButton.addEventListener('click', function() {
         this.classList.add('adding');
 
         if (validateInput(taskInput.value) === false) {
             return console.log('min 5 letters');
         }
-
+        // Create elements
         var taskListLi = document.createElement('li');
         var taskListH2 = document.createElement('h2');
         var buttonDelete = document.createElement('button');
@@ -35,10 +35,12 @@ document.addEventListener("DOMContentLoaded", function() {
         addDoneClass(buttonComplete);
         removeListElement(buttonDelete, taskListLi);
 
+        // Reset form
         taskInput.value = ' ';
         taskInput.value = taskInput.defaultValue;
     });
 
+    // Remove task
     function addDoneClass(button) {
         button.addEventListener('click', function() {
             this.parentElement.classList.toggle('done');
@@ -74,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    /*add animation*/
+    // Add animation
     addTaskButton.addEventListener('transitionend', removeTransition);
     function removeTransition(event){
         if (event.propertyName == 'transform') {
