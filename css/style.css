@@ -133,7 +133,7 @@ input[type="text"]:-moz-placeholder  {
      font-family: 'Gloria Hallelujah', cursive;
      color: black;
 }
-/* Style the 'add task' button */
+/* Style the 'add task' button */ 
 .addTask > button {
     font-size: 2em;
     color: white;
