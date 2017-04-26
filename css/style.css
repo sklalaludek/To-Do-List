@@ -14,10 +14,14 @@ body,html {
 }
 body {
     min-height: 100vh;
+    display: -ms-flexbox;  /* TWEENER - IE 10 */ /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-flow: column nowrap;
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-pack: justify;
+        justify-content: space-between;
+    -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap;
 }
 h2 {
     margin: 0;
@@ -30,24 +34,30 @@ button {
     text-transform: uppercase;
     text-align: center;
     color: white;
+    outline: none;
 }
-
-/* Content */
+button::-moz-focus-inner {
+  border: 0;
+}
 #container {
     margin-top: 10em;
     min-height: 50em;
     min-width: 50%;
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 5%;
-    box-shadow: 0px 40px 60px -20px rgba(0,0,0,0.2);
+    box-shadow: 0 4em 6em -2em rgba(0,0,0,0.2);
     overflow: hidden;
+    display: -ms-flexbox;  /* TWEENER - IE 10 */ /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
     display: flex;
-    flex-flow: column nowrap;
-    justify-content: flex-start;
-    align-items: center;
+    -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap;
+    -ms-flex-pack: start;
+        justify-content: flex-start;
+    -ms-flex-align: center;
+        align-items: center;
     padding: 2em 1.5em;
 }
-/*h1*/
+/* Style the h1*/
 .title {
     font-size: 5em;
     margin: 0;
@@ -55,29 +65,41 @@ button {
     border-bottom: 0.020em solid lightgray;
     text-shadow: 0 0 0.2em black;
 }
-/* Div for text and task counter*/
+/* Style the text and span 'counter'*/
 .additionalTask {
     font-size: 2em;
     margin-bottom: 1.5em;
     text-shadow: 0 0 .1em black;
 }
 .additionalTask > span {
+    display: -ms-inline-flexbox;
+    display: -webkit-inline-flex;
+    display: -moz-inline-box;
     display: inline-flex;
+    -ms-flex-pack: center;
     justify-content: center;
+    -ms-flex-align: baseline;
     align-items: baseline;
     width: 2em;
     color: rgb(255, 255, 255);
     border-radius: 10%;
     background-color: rgb(61, 89, 122);
+    box-shadow: 0 0.3em 0.4em 0 rgba(0,0,0,0.75);
 }
-/* Div for input and button */
+/* Style the input and 'add task' button */
 .addTask {
     display: flex;
+    display: -ms-flexbox;  /* TWEENER - IE 10 */
+    display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
     width: 100%;
-    justify-content: space-around;
-    align-items: baseline;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-justify-content: space-around;
+    -ms-flex-align: baseline;
+        align-items: baseline;
+    -webkit-align-items: baseline;
 }
-/* Add task input */
+/* Style the input */
 .addTask input[type="text"] {
     font-size: 20px;
     font-family: 'Gloria Hallelujah', cursive;
@@ -90,7 +112,7 @@ button {
     padding: 0.5em;
     outline-color: lightgray;
 }
-/* Placeholder*/
+/* Style the Placeholder*/
  /* Chrome/Opera/Safari */
 input[type="text"]::-webkit-input-placeholder {
      font-family: 'Gloria Hallelujah', cursive;
@@ -111,50 +133,52 @@ input[type="text"]:-moz-placeholder  {
      font-family: 'Gloria Hallelujah', cursive;
      color: black;
 }
-/* Button */
+/* Style the 'add task' button */
 .addTask > button {
     font-size: 2em;
     color: white;
     min-width: 4em;
-    padding: 0.3em 0.5em;
+    padding: 0.3em 1em;
     border-radius: 5%;
     border-bottom: 0.2em solid rgb(203, 103, 76);
     /*background: rgba(255,69,0, 0.9);*/
     background-color: rgb(255, 131, 98);
     outline: none;
     transition: transform .08s ease;
+    box-shadow: 0 0.400em 0.400em 0 rgba(0,0,0,0.75);
 }
+/* Add an animation when clicked on*/
 .adding {
-    /*transform: scale(1.1);
-    border: 0.2em solid rgb(255, 198, 0);
-    box-shadow: 0 0 2em rgb(255, 198, 0);*/
+    -ms-transform: scale(0.95);
     transform: scale(0.95);
 }
-
-/* List */
+/* Style the List */
 ul {
     list-style-type: none;
     margin: 0;
+    margin-top: 1em;
     padding: 0;
     width: 100%;
 }
-/* List items*/
+/* Style the list items*/
 ul li {
     font-size: 1.800em;
     cursor: pointer;
     position: relative;
-    padding: 12px 8px 12px 20px;
-    margin-bottom: 5px;
-    transition: border-left 0.2s ease;
+    padding: 0.667em 0.444em 0.667em 1.111em;
+    transition: transform .3s ease;
 }
 ul li:hover {
-    border-left: 1px solid lightgray;
+    -ms-transform: scale(0.95);
+    transform: scale(0.95);
+    border: 0.2em solid rgb(87, 87, 87);
+    box-shadow: 0 0 2em rgb(87, 87, 87);
 }
-/*Buttons*/
+/* Style all list's buttons*/
 li button {
-    padding: 5px 10px;
-    margin-right: 5px;
-    outline: none;
+    padding: 0.500em 1em;
+    margin-right: 0.500em;
+    box-shadow: 0 0.400em 0.400em 0 rgba(0,0,0,0.75);
 }
 li button.complete {
     background-color: rgb(119, 189, 66);
@@ -168,11 +192,12 @@ li button.delete {
     border-radius: 5%;
     border-bottom: 0.300em solid rgb(154, 42, 42);
 }
+/* class done*/
 .done {
+    color: rgb(119, 189, 66);
     text-decoration: line-through;
 }
-
-/* Remove button */
+/* Style the 'remove' button */
 #removeFinishedTasksButton {
     width: 100%;
     /*background-color: rgb(255,69,0);*/
