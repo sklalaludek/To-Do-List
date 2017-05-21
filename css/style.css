@@ -4,8 +4,9 @@
 }
 html {
   font-size: 10px;
-  background: url('../img/background.png') bottom center no-repeat;
+  background: url('../img/background.png') top no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 }
 body,html {
   font-family: 'Gloria Hallelujah', cursive;
